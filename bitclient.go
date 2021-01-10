@@ -1,7 +1,6 @@
 package bitclient
 
 import (
-	"fmt"
 	"github.com/dghubble/sling"
 	"strings"
 )
