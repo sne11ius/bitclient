@@ -53,7 +53,7 @@ func (bc *BitClient) DoGet(uri string, params interface{}, rData interface{}) (*
 
 	rError := new(ErrorResponse)
 
-	resp, _ := bc.sling.New().Get(BASE_URI+uri).QueryStruct(params).Receive(rData, rError)
+	resp, _ := bc.sling.New().Get(bc.basePath+BASE_URI+uri).QueryStruct(params).Receive(rData, rError)
 
 	return bc.checkReponse(resp, rError)
 }
@@ -62,7 +62,7 @@ func (bc *BitClient) DoPostUrl(uri string, params interface{}, rData interface{}
 
 	rError := new(ErrorResponse)
 
-	resp, _ := bc.sling.New().Post(BASE_URI+uri).QueryStruct(params).Receive(rData, rError)
+	resp, _ := bc.sling.New().Post(bc.basePath+BASE_URI+uri).QueryStruct(params).Receive(rData, rError)
 
 	return bc.checkReponse(resp, rError)
 }
@@ -71,7 +71,7 @@ func (bc *BitClient) DoPost(uri string, data interface{}, rData interface{}) (*h
 
 	rError := new(ErrorResponse)
 
-	resp, _ := bc.sling.New().Post(BASE_URI+uri).BodyJSON(data).Receive(rData, rError)
+	resp, _ := bc.sling.New().Post(bc.basePath+BASE_URI+uri).BodyJSON(data).Receive(rData, rError)
 
 	return bc.checkReponse(resp, rError)
 }
@@ -80,7 +80,7 @@ func (bc *BitClient) DoPut(uri string, data interface{}, rData interface{}) (*ht
 
 	rError := new(ErrorResponse)
 
-	resp, _ := bc.sling.New().Put(BASE_URI+uri).BodyJSON(data).Receive(rData, rError)
+	resp, _ := bc.sling.New().Put(bc.basePath+BASE_URI+uri).BodyJSON(data).Receive(rData, rError)
 
 	return bc.checkReponse(resp, rError)
 }
@@ -89,7 +89,7 @@ func (bc *BitClient) DoPutUrl(uri string, data interface{}, rData interface{}) (
 
 	rError := new(ErrorResponse)
 
-	resp, _ := bc.sling.New().Put(BASE_URI+uri).QueryStruct(data).Receive(rData, rError)
+	resp, _ := bc.sling.New().Put(bc.basePath+BASE_URI+uri).QueryStruct(data).Receive(rData, rError)
 
 	return bc.checkReponse(resp, rError)
 }
@@ -98,7 +98,7 @@ func (bc *BitClient) DoDeleteUrl(uri string, params interface{}, rData interface
 
 	rError := new(ErrorResponse)
 
-	resp, _ := bc.sling.New().Delete(BASE_URI+uri).QueryStruct(params).Receive(rData, rError)
+	resp, _ := bc.sling.New().Delete(bc.basePath+BASE_URI+uri).QueryStruct(params).Receive(rData, rError)
 
 	return bc.checkReponse(resp, rError)
 }
